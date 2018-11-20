@@ -78,9 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'mysql_cymysql',
         'NAME': 'dbsctu',
-        'USER': 'root',
-        'PASSWORD' : '',
-        'HOST' : 'localhost',
+        'USER': 'sistemactu',
+        'PASSWORD' : 'Club7e15un10n2018',
+        'HOST' : 'sistemactu.mysql.pythonanywhere-services.com',
         'PORT' : '3306',
     }
 }
