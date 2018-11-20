@@ -16,22 +16,24 @@
 
 <body>
 
-    <div class="container">
+    <div class="container bg-light">
 
         <header>
 
             <div class="row justify-content-center">
 
-                <div class="col1-12 pt-2">
+                <a href="{% url 'index' %}">
+                    <div class="col1-12 pt-2">
 
-                    <img src="{% static 'img/logo_cancha.png' %}" alt="" class="img-fluid rounded" id="logo-l">
+                        <img src="{% static 'img/logo_cancha.png' %}" alt="" class="img-fluid rounded" id="logo-l">
 
-                </div>
-                <div class="col-4">
+                    </div>
+                    <div class="col-12">
 
-                    <img src="{% static 'img/logo_ctu.jpg' %}" alt="" class="img-fluid" id="logo-s">
+                        <img src="{% static 'img/logo_ctu.jpg' %}" alt="" class="img-fluid" id="logo-s">
 
-                </div>
+                    </div>
+                </a>
             </div>
 
 
@@ -48,34 +50,44 @@
                                 <li class="nav-item col-12 col-md-3  text-center dropdown">
                                     <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Sesión</a>
                                     <div class="dropdown-menu">
-                                        <a href="#" class="dropdown-item">Ingresar</a>
-                                        <a href="#" class="dropdown-item">Perfil</a>
-                                        <a href="#" class="dropdown-item">Salir</a>
+                                        {% if user.is_authenticated %}
+                                        <p class="text-center">Usuario {{ user.username }}</p>
+                                        <a href="#" class="dropdown-item text-center">Perfil</a>
+                                        <a href="{% url 'logout' %}" class="dropdown-item text-center">Salir</a>
+                                        {% if user.is_superuser or user.is_staff %}
+                                        <!--accesos solo a los usuarios del tipo admin-->
+                                        <a href="{% url 'signup' %}" class="dropdown-item text-center">Crear nuevo
+                                            usuario</a>
+                                        {% endif %}
+                                        {% else %}
+                                        <p class="text-center">Sesión no iniciada</p>
+                                        <a href="{% url 'login' %}" class="dropdown-item text-center">Ingresar</a>
+                                        {% endif %}
                                     </div>
                                 </li>
                                 <li class="nav-item col-12 col-md-3  text-center dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Socios</a>
                                     <div class="dropdown-menu">
-                                        <a href="#" class="dropdown-item">Registrar Solicitud</a>
-                                        <a href="#" class="dropdown-item">Solicitudes pendientes</a>
-                                        <a href="#" class="dropdown-item">Listado de socios</a>
+                                        <a href="#" class="dropdown-item text-center">Registrar Solicitud</a>
+                                        <a href="#" class="dropdown-item text-center">Solicitudes pendientes</a>
+                                        <a href="#" class="dropdown-item text-center">Listado de socios</a>
                                     </div>
                                 </li>
                                 <li class="nav-item col-12 col-md-3  text-center dropdown">
                                     <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Operaciones</a>
                                     <div class="dropdown-menu">
-                                        <a href="#" class="dropdown-item">Registro de pago</a>
-                                        <a href="#" class="dropdown-item">Comprobante de ingresos</a>
-                                        <a href="#" class="dropdown-item">Comprobante de egreso</a>
+                                        <a href="#" class="dropdown-item text-center">Registro de pago</a>
+                                        <a href="#" class="dropdown-item text-center">Comprobante de ingresos</a>
+                                        <a href="#" class="dropdown-item text-center">Comprobante de egreso</a>
                                     </div>
                                 </li>
                                 <li class="nav-item col-12 col-md-3  text-center dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informes</a>
                                     <div class="dropdown-menu">
-                                        <a href="#" class="dropdown-item">Informe de ingresos</a>
-                                        <a href="#" class="dropdown-item">Informe de egresos</a>
-                                        <a href="#" class="dropdown-item">Informe de cheques</a>
-                                        <a href="#" class="dropdown-item">Cuadraturas</a>
+                                        <a href="#" class="dropdown-item text-center">Informe de ingresos</a>
+                                        <a href="#" class="dropdown-item text-center">Informe de egresos</a>
+                                        <a href="#" class="dropdown-item text-center">Informe de cheques</a>
+                                        <a href="#" class="dropdown-item text-center">Cuadraturas</a>
                                     </div>
                                 </li>
                             </ul>
@@ -86,9 +98,19 @@
 
         </header>
 
+        <body>
 
-        {% block content %}
-        {% endblock %}
+            {% block content %}
+            {% endblock %}
+
+            <br>
+            <br>
+        </body>
+
+
+        <footer class="bg-secondary">
+            Nicolas smimoy
+        </footer>
 
 
 

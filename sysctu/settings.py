@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+
+
+#redireccionamiento login
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
+
+
+#configuracion email
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sistemactu@gmail.com'
+EMAIL_HOST_PASSWORD = 'clubtenisunion2018'
+EMAIL_PORT = 587
