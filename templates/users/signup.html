@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Registrar{% endblock %}
+
+{% block content %}
+<h2>Registro de usuarios</h2>
+<form method="post">
+    {% csrf_token %}
+
+
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <label for="id_username">Nombre de usuario:</label>
+        </div>
+        <div class="col-12 col-md-8">
+            <input type="text" name="username" maxlength="150" autofocus required id="id_username" class="form-control">
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <span class="helptext">Requerido. 150 carácteres como máximo. Únicamente letras, dígitos y @/./+/-/_ </span></p>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <label for="id_first_name">Nombres:</label>
+        </div>
+        <div class="col-12 col-md-8">
+            <input type="text" name="first_name" maxlength="150" autofocus required id="id_first_name" class="form-control">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <label for="id_last_name">Apellidos:</label>
+        </div>
+        <div class="col-12 col-md-8">
+            <input type="text" name="last_name" maxlength="150" autofocus required id="id_last_name" class="form-control">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <label for="id_email">Correo electronico:</label>
+        </div>
+        <div class="col-12 col-md-8">
+            <input type="text" name="email" maxlength="150" autofocus required id="id_email" class="form-control">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-8">
+            <input type="checkbox" name="is_staff" id="" class="from-checkbox-input"><label for="" class="ml-2">  Es staff</label>
+        </div>
+    </div>
+
+    <p><label for="id_password1">Contraseña:</label> <input type="password" name="password1" required id="id_password1">
+        <span class="helptext">
+            <ul>
+                <li>La contraseña no puede asemejarse tanto a su otra información personal.</li>
+                <li>La contraseña debe contener al menos 8 caracteres.</li>
+                <li>La contraseña no puede ser una clave utilizada comunmente.</li>
+                <li>La contraseña no puede ser completamente numérica.</li>
+            </ul>
+        </span></p>
+    <p><label for="id_password2">Contraseña (confirmación):</label> <input type="password" name="password2" required id="id_password2">
+        <span class="helptext">Para verificar, introduzca la misma contraseña anterior.</span></p>
+    <button type="submit">Sign up</button>
+</form>
+{% endblock %}
