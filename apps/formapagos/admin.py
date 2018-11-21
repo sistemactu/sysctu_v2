@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import FormaPago, Cheques
+
+admin.site.register(FormaPago)
+
+admin.site.register(Cheques)

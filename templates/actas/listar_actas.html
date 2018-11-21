@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Actas{% endblock %}
+
+{% block content %}
+
+{% if user.is_superuser or user.is_staff or is_operative %}
+
+<br>
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+        <a href="{% url 'nueva_acta' %}" class="btn-outline-dark btn form-control">Ingresar nueva acta</a>
+    </div>
+</div>
+
+{% endif %}
+
+{% if actas %}
+
+<br>
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+        <table class="table table-hover">
+            <tr>
+                <td>Numero de acta</td>
+                <td>Fecha de reunion</td>
+            </tr>
+
+            {% for acta in actas %}
+            <tr>
+               
+                    <td> <a href="{% url 'detalle_acta' pk=acta.pk %}">{{ acta.numActa }}</a></td>
+                    <td>{{ acta.fechaActa }}</td>
+                
+            </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% else %}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+        <h3>No se encontraron actas.</h3>
+    </div>
+</div>
+
+{% endif %}
+
+
+{% endblock %}
