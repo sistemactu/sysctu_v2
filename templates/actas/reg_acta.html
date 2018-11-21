@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Ingreso de actas{% endblock %}
+
+
+{% block content %}
+
+<h2>Registro de actas</h2>
+{% if user.is_superuser or user.is_staff %}
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="row">
+        <div class="col-12">
+            <button type="submit">Guardar</button>
+        </div>
+    </div>
+</form>
+{% else %}
+<div class="row">
+    <div class="col">
+        <h2>Lo sentimos, no tienes autorización para esta seccion.</h2>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

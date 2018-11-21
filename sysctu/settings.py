@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'apps.actas',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'mysql_cymysql',
         'NAME': 'dbsctu',
-        'USER': 'sistemactu',
-        'PASSWORD' : 'Club7e15un10n2018',
-        'HOST' : 'sistemactu.mysql.pythonanywhere-services.com',
+        'USER': 'root',
+        'PASSWORD' : '',
+        'HOST' : 'localhost',
         'PORT' : '3306',
     }
 }
@@ -124,7 +125,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-
+#directorio para los archivos de imagenes
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'media')
+MEDIAFILES_DIRS = (os.path.join(BASE_DIR, 'media'),)
 
 #redireccionamiento login
 LOGIN_REDIRECT_URL = 'index'
@@ -137,3 +141,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'sistemactu@gmail.com'
 EMAIL_HOST_PASSWORD = 'clubtenisunion2018'
 EMAIL_PORT = 587
+

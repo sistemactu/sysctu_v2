@@ -1,0 +1,72 @@
+{% extends 'base/base.html' %}
+
+
+{% block seccion %}
+<div class="row justify-content-center bg-info">
+
+    <div class="row col-10 justify-content-between m-2" style="background-color:red">
+        <div class="col-12 col-md-5 align-items-center" style="background-color:aquamarine">
+            <div class="border">
+                <label class="">Nombre completo:</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-5" style="background-color:brown">
+            <input type="text" name="nombCompSoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row col-10 justify-content-between m-2" style="background-color:red">
+        <div class="col-12 col-md-5 align-items-center" style="background-color:aquamarine">
+            <div class="border">
+                <label class="">Rut:</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 " style="background-color:brown">
+            <input type="text" name="rutSoc" class="form-control">
+        </div>
+    </div>
+
+    <div class="row col-10 justify-content-between m-2" style="background-color:red">
+        <div class="col-12 col-md-5 align-items-center" style="background-color:aquamarine">
+            <div class="border">
+                <label class="">Domicilio:</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 " style="background-color:brown">
+            <input type="text" name="domicSoc" class="form-control">
+        </div>
+    </div>
+
+    <div class="row col-10 justify-content-between m-2" style="background-color:red">
+        <div class="col-12 col-md-5 align-items-center" style="background-color:aquamarine">
+            <div class="border">
+                <label class="">Fecha de nacimiento:</label>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 " style="background-color:brown">
+            <input name="fecNacSoc" class="datepicker form-control" placeholder="dd/mm/aaaa">
+        </div>
+    </div>
+
+
+    <script>
+        $(".datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '-100:+0',
+            maxDate: 0,
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        });
+    </script>
+
+</div>
+{% endblock %}
