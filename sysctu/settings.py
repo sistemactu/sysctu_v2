@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'apps.actas',
     'apps.formapagos',
+    'apps.socios',
 ]
 
 MIDDLEWARE = [

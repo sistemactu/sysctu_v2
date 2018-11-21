@@ -1,261 +1,289 @@
 {% extends 'base/base.html' %}
-{% load static %}
 
 
-{% block extracss %}
+{% block content %}
+<div class="row col-10 justify-content-center" style="background-color:aqua"></div>
+<form method="POST">
 
-<link rel="stylesheet" href="{% static 'css/tempusdominus-bootstrap-4.min.css' %}">
-{% endblock %}
+    {% csrf_token %}
 
-{% block seccion %}
-<div class="row col-10 justify-content-center align-items-center" style="background-color:aqua">
-    <form method="POST">
+    <br>
 
-        {% csrf_token %}
-        <!--{{ form.as_p}}-->
-        <div class="foto">
+    <div class="row justify-content-center align-items-center" style="height:100px">
+        <div class="col-4">
             {{ form.fotoSoc }}
         </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="">
-                <label for="">Nombre completo postulante:</label>
-            </div>
-            <div>
-                <input type="text" name="nombCompSoc" size="40">
-            </div>
-        </div>
-
-
-        <div class="row justify-content-between border align-items-center">
-            <div>
-                <label for="">Rut:</label>
-            </div>
-            <div>
-                <input type="text" name="rutSoc">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div>
-                <label for="">Domicilio:</label>
-            </div>
-            <div>
-                <input type="text" name="domicSoc" size="40">
-            </div>
-        </div>
-
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="fecNac">
-                <label for="">Fecha de nacimiento:</label>
-                <input name="fecNacSoc" class="datepicker" placeholder="dd/mm/aaaa">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="e-mail">
-                <label for="">Correo electronico:</label>
-                <input type="email" name="mailSoc" id="">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="cel">
-                <label for="">Celular:</label>
-                <input type="text" name="celSoc" placeholder="+5691111111">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="tel">
-                <label for="">Telefono:</label>
-                <input type="text" name="telSoc" placeholder="322111111">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="prof">
-                <label for="">Profeción:</label>
-                <input type="text" name="profecSoc" placeholder="Vendedor">
-            </div>
-            <div class="trab">
-                <label for="">Lugar de trabajo:</label>
-                <input type="text" name="trabSoc">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="eda">
-                <label for="">Edad:</label>
-                <input type="number" name="edadSoc" min="1">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="nac">
-                <label for="">Nacionalida:</label>
-                <input type="text" name="nacionalidadSoc">
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="estciv">
-                <label for="">Estado civil:</label>
-                <select name="estCivSoc" id="">
-                    <option value="slt">Soltero</option>
-                    <option value="csd">Casado</option>
-                    <option value="dvr">Divorciado</option>
-                    <option value="vdo">Viudo</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row justify-content-between border align-items-center">
-            <div class="cony">
-                <label for="">Conyuge:</label>
-                <input type="text" name="conySoc">
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="hijos">
-                    <label for="">Cantidad de hijos menores:</label>
-                    <select name="numHijMenSoc">
-                        <option value="0" selected="selected">Ninguno</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="pertct">
-                    <label for="">Otros clubs de tenis a los que pertenece o pertenecio:</label>
-                    <input type="text" name="poctSoc">
-                </div>
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="pertocs">
-                    <label for="">Otros clubs sociales a los que pertenece o pertenecio:</label>
-                    <input type="text" name="ocsSoc">
-                </div>
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="categ">
-                    <label for="">Catgoría tenistica:</label>
-                    <input type="text" name="catTenSoc" id="">
-                </div>
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="cuotinc">
-                    <label for="">Cuota de incorporación:</label>
-                    <input type="number" id="cuotInc" name="cuotInc" min="0" class="monto" onchange="sumar();">
-                </div>
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="cuotsoc">
-                    <label for="">Cuota social:</label>
-                    <input type="number" id="cuotSoc" name="cuotSoc" min="0" class="monto" onchange="sumar();">
-                </div>
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="totalsolic">
-                    <label for="">Total cancelado:</label>
-                    <span name="totPag" id="spTotal"></span>
-                </div>
-            </div>
-
-            <div class="row justify-content-between border align-items-center">
-                <div class="formpago">
-                    <label for="">Forma de pago</label>
-                    {{ form.formPaInsc }}
-                    <button type="submit" id="btnCheque" disabled="disabled"></button>
-                </div>
-            </div>
-
-
-
-            <div class="boton">
-                <button type="submit">Guardar</button>
-            </div>
-
-    </form>
-</div>
-
-<div>
-    <div>
-        <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" />
-            <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-        <div class="col-sm-6">
-            <div class="form-group">
-                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
-                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker4').datetimepicker({
-                    format: 'L'
-                });
-            });
-        </script>
     </div>
 
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker4').datetimepicker({
-            format: 'L'
-        });
-    });
-</script>
+    <br>
 
-<script>
-    $(".datepicker").datepicker({
-        changeMonth: true,
-        changeYear: true,
-        yearRange: '-100:+0',
-        maxDate: 0,
-        dateFormat: 'dd/mm/yy',
-        firstDay: 1,
-        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
-        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-    });
-</script>
-<script>
-    if ('#id_formPaInsc' == "Cheque") {
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Nombre completo postulante:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="nombCompSoc"  class="form-control">
+        </div>
+    </div>
 
-    }
+    <br>
 
-</script>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Rut:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="rutSoc" class="form-control">
+        </div>
+    </div>
 
-<script src="{% static 'js/tempusdominus-bootstrap-4.min.js' %}"></script>
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Domicilio:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="domicSoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Fecha de nacimiento:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input name="fecNacSoc" id="datepicker" width="276" placeholder="dd/mm/aaaa">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Correo electronico:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="email" name="mailSoc" id="" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Celular:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="celSoc" placeholder="+5691111111" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Telefono:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="telSoc" placeholder="322111111" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Profeción:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="profecSoc" placeholder="Vendedor" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Lugar de trabajo:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="trabSoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Edad:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="number" name="edadSoc" min="1" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Nacionalida:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="nacionalidadSoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Estado civil:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <select name="estCivSoc" id="" class="form-control">
+                <option value="slt">Soltero</option>
+                <option value="csd">Casado</option>
+                <option value="dvr">Divorciado</option>
+                <option value="vdo">Viudo</option>
+            </select>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Conyuge:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="conySoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Cantidad de hijos menores:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <select name="numHijMenSoc" class="form-control">
+                <option value="0" selected="selected">Ninguno</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Otros clubs de tenis a los que pertenece o pertenecio:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="poctSoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Otros clubs sociales a los que pertenece o pertenecio:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="ocsSoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Catgoría tenistica:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="text" name="catTenSoc" class="form-control">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Cuota de incorporación:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="number" id="cuotInc" name="cuotInc" min="0" class="monto form-control" onchange="sumar();">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Cuota social:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <input type="number" id="cuotSoc" name="cuotSoc" min="0" class="monto form-control" onchange="sumar();" >
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-5">
+            <label for="">Total cancelado:</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <span name="totPag" id="spTotal" class="form-control"></span>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-3">
+            <label for="">Forma de pago:</label>
+        </div>
+        <div class="col-12 col-md-4">
+            {{ form.formPaInsc }}
+
+        </div>
+
+        <div class="col-12 col-md-3">
+            <button type="submit" id="btnCheque" disabled="disabled"></button>
+        </div>
+
+    </div>
+
+
+<br>
+
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <button type="submit" class="btn btn-outline-dark form-control">Guardar</button>
+        </div>
+    </div>
+</form>
+
+
+</div>
+
+
+
+
 
 {% endblock %}
-
