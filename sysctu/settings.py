@@ -142,3 +142,5 @@ EMAIL_HOST_USER = 'sistemactu@gmail.com'
 EMAIL_HOST_PASSWORD = 'clubtenisunion2018'
 EMAIL_PORT = 587
 
+#configuracion de usuario personalizado
+AUTH_USER_MODEL = 'users.CustomUser'
