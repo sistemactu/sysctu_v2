@@ -1,287 +1,305 @@
 {% extends 'base/base.html' %}
 
 
+
 {% block content %}
-<div class="row col-10 justify-content-center" style="background-color:aqua"></div>
-<form method="POST">
 
-    {% csrf_token %}
+{% if user.is_superuser or user.is_staff or is_operative %}
 
-    <br>
 
-    <div class="row justify-content-center align-items-center" style="height:100px">
-        <div class="col-4">
-            {{ form.fotoSoc }}
-        </div>
-    </div>
+<div class="row col-12 m-0 p-0 justify-content-center">
+    <form method="POST" enctype="multipart/form-data">
 
-    <br>
+        {% csrf_token %}
 
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Nombre completo postulante:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="nombCompSoc"  class="form-control">
-        </div>
-    </div>
+        <br>
 
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Rut:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="rutSoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Domicilio:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="domicSoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Fecha de nacimiento:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input name="fecNacSoc" id="datepicker" width="276" placeholder="dd/mm/aaaa">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Correo electronico:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="email" name="mailSoc" id="" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Celular:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="celSoc" placeholder="+5691111111" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Telefono:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="telSoc" placeholder="322111111" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Profeción:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="profecSoc" placeholder="Vendedor" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Lugar de trabajo:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="trabSoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Edad:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="number" name="edadSoc" min="1" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Nacionalida:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="nacionalidadSoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Estado civil:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <select name="estCivSoc" id="" class="form-control">
-                <option value="slt">Soltero</option>
-                <option value="csd">Casado</option>
-                <option value="dvr">Divorciado</option>
-                <option value="vdo">Viudo</option>
-            </select>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Conyuge:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="conySoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Cantidad de hijos menores:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <select name="numHijMenSoc" class="form-control">
-                <option value="0" selected="selected">Ninguno</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Otros clubs de tenis a los que pertenece o pertenecio:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="poctSoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Otros clubs sociales a los que pertenece o pertenecio:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="ocsSoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Catgoría tenistica:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="text" name="catTenSoc" class="form-control">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Cuota de incorporación:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="number" id="cuotInc" name="cuotInc" min="0" class="monto form-control" onchange="sumar();">
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Cuota social:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <input type="number" id="cuotSoc" name="cuotSoc" min="0" class="monto form-control" onchange="sumar();" >
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-5">
-            <label for="">Total cancelado:</label>
-        </div>
-        <div class="col-12 col-md-5">
-            <span name="totPag" id="spTotal" class="form-control"></span>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-md-3">
-            <label for="">Forma de pago:</label>
-        </div>
-        <div class="col-12 col-md-4">
-            {{ form.formPaInsc }}
-
+        <div class="row justify-content-center align-items-center" style="height:200px">
+            <div class="col-12 col-md-1">
+                <label for="">Foto:</label>
+            </div>
+            <div class="col-4">
+                {{ form.fotoSoc }}
+            </div>
+            <div id="preview" class="col-12 col-md-5" style="height:200px;"></div>
         </div>
 
-        <div class="col-12 col-md-3">
-            <button type="submit" id="btnCheque" disabled="disabled"></button>
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Nombre completo postulante:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="nombCompSoc" class="form-control">
+            </div>
         </div>
 
-    </div>
+        <br>
 
-
-<br>
-
-
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8">
-            <button type="submit" class="btn btn-outline-dark form-control">Guardar</button>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Rut:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="rutSoc" class="form-control">
+            </div>
         </div>
-    </div>
-</form>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Domicilio:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="domicSoc" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Fecha de nacimiento:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input name="fecNacSoc" id="datepicker" width="276" placeholder="dd/mm/aaaa">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Correo electronico:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="email" name="mailSoc" id="" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Celular:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="celSoc" placeholder="+5691111111" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Telefono:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="telSoc" placeholder="322111111" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Profeción:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="profecSoc" placeholder="Vendedor" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Lugar de trabajo:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="trabSoc" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Edad:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="number" name="edadSoc" min="1" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Nacionalida:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="nacionalidadSoc" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Estado civil:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <select name="estCivSoc" id="" class="form-control">
+                    <option value="slt">Soltero</option>
+                    <option value="csd">Casado</option>
+                    <option value="dvr">Divorciado</option>
+                    <option value="vdo">Viudo</option>
+                </select>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Conyuge:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="conySoc" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Cantidad de hijos menores:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <select name="numHijMenSoc" class="form-control">
+                    <option value="0" selected="selected">Ninguno</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Otros clubs de tenis a los que pertenece o pertenecio:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="poctSoc" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Otros clubs sociales a los que pertenece o pertenecio:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="ocsSoc" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Catgoría tenistica:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="text" name="catTenSoc" class="form-control">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Cuota de incorporación:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="number" id="cuotInc" name="cuotInc" min="0" class="monto form-control" onchange="sumar();">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Cuota social:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <input type="number" id="cuotSoc" name="cuotSoc" min="0" class="monto form-control" onchange="sumar();">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Total cancelado:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                <span name="totPag" id="spTotal" class="form-control"></span>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-3">
+                <label for="">Forma de pago:</label>
+            </div>
+            <div class="col-12 col-md-4">
+                {{ form.formPaInsc }}
+
+            </div>
+
+            <div class="col-12 col-md-3">
+                <button type="submit" id="btnCheque" disabled="disabled"></button>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <button type="submit" class="btn btn-outline-dark form-control">Guardar</button>
+            </div>
+        </div>
+    </form>
 
 
 </div>
 
+
+
+
+{% else %}
+<div class="row">
+    <div class="col">
+        <h2>Lo sentimos, no tienes autorización para esta seccion.</h2>
+    </div>
+</div>
+
+{% endif %}
 
 
 

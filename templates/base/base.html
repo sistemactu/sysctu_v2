@@ -49,9 +49,8 @@
 
                         <div class="collapse navbar-collapse" id="menu">
                             <ul class="navbar-nav col-12 justify-content-around p-0 m-0">
-                                <li class="nav-item col-12 col-md-3  text-center dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Usuario del
-                                        Sistema</a>
+                                <li class="nav-item col-12 col-md-2  text-center dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Usuario</a>
                                     <div class="dropdown-menu">
                                         {% if user.is_authenticated %}
                                         <p class="text-center">Usuario {{ user.username }}</p>
@@ -68,7 +67,15 @@
                                         {% endif %}
                                     </div>
                                 </li>
-                                <li class="nav-item col-12 col-md-3  text-center dropdown">
+                                <li class="nav-item col-12 col-md-2  text-center dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Solicitudes</a>
+                                    <div class="dropdown-menu">
+                                        <a href="{% url 'nueva_solicitud' %}" class="dropdown-item text-center">Registrar Solicitud</a>
+                                        <a href="#" class="dropdown-item text-center">Solicitudes pendientes</a>
+                                        <a href="{% url 'listar_solicitudes' %}" class="dropdown-item text-center">Listado de Solicitudes</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item col-12 col-md-2  text-center dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Socios</a>
                                     <div class="dropdown-menu">
                                         <a href="#" class="dropdown-item text-center">Registrar Solicitud</a>
@@ -76,7 +83,7 @@
                                         <a href="{% url 'listar_socios' %}" class="dropdown-item text-center">Listado de socios</a>
                                     </div>
                                 </li>
-                                <li class="nav-item col-12 col-md-3  text-center dropdown">
+                                <li class="nav-item col-12 col-md-2  text-center dropdown">
                                     <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Operaciones</a>
                                     <div class="dropdown-menu">
                                         <a href="#" class="dropdown-item text-center">Registro de pago</a>
@@ -84,11 +91,19 @@
                                         <a href="#" class="dropdown-item text-center">Comprobante de egreso</a>
                                     </div>
                                 </li>
-                                <li class="nav-item col-12 col-md-3  text-center dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informes y
-                                        actas</a>
+                                <li class="nav-item col-12 col-md-2  text-center dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Actas</a>
                                     <div class="dropdown-menu">
                                         <a href="{% url 'actas' %}" class="dropdown-item text-center">Actas</a>
+                                        <a href="#" class="dropdown-item text-center">Informe de ingresos</a>
+                                        <a href="#" class="dropdown-item text-center">Informe de egresos</a>
+                                        <a href="#" class="dropdown-item text-center">Informe de cheques</a>
+                                        <a href="#" class="dropdown-item text-center">Cuadraturas</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item col-12 col-md-2  text-center dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informes</a>
+                                    <div class="dropdown-menu">
                                         <a href="#" class="dropdown-item text-center">Informe de ingresos</a>
                                         <a href="#" class="dropdown-item text-center">Informe de egresos</a>
                                         <a href="#" class="dropdown-item text-center">Informe de cheques</a>
@@ -156,6 +171,7 @@
     <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jsbase.js' %}"></script>
 </body>
 
 </html>

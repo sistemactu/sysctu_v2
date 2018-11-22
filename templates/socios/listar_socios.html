@@ -21,24 +21,35 @@
 <br>
 
 <div class="row justify-content-center">
-    <div class="col-12 col-md-6">
-        <table class="table table-hover">
-            <tr>
-                <td>Put socio</td>
-                <td>Nombre completo</td>
-            </tr>
+    <div class="col-12 col-md-12 m-0 p-0">
+        <div style="width: 100%; height: 600px; overflow-y: scroll; overflow-x: scroll;">
 
-            {% for acta in actas %}
-            <tr>
-               
-                    <td> <a href="{% url 'detalle_acta' pk=acta.id %}">{{ socio.rutSoc }}</a></td>
+            <table class="table table-hover">
+                <tr>
+                    <td>Foto solicitante</td>
+                    <td>Rut socio</td>
+                    <td>Nombre completo</td>
+                    <td>Fecha solicitud</td>
+                    <td>Estado</td>
+                </tr>
+
+                {% for socio in socios %}
+                <tr>
+
+                    <td> <img src="/static/{{ socio.fotoSoc }}" height="200px" alt=""> </td>
+                    <td> <a href="#">{{ socio.rutSoc }}</a></td>
                     <td>{{ socio.nombCompSoc }}</td>
-                   
-                
-            </tr>
+                    <td>{{ socio.fecSolic }}</td>
+                    {% if socio.estSolic == 'p' %}
+                    <td class="text-success">Pendiente</td>
+                    {% elif socio.estSolic == 'r' %}
+                    <td class="text-danger">Rechazado</td>
+                    {% endif %}
+                </tr>
 
-            {% endfor %}
-        </table>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 </div>
 

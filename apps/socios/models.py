@@ -10,11 +10,11 @@ class Socio(models.Model):
     domicSoc = models.CharField(max_length=100)#domicilio particular del socio
     fecNacSoc = models.DateField(null=True)#fecha de nacimiento del socio
     mailSoc = models.EmailField(null=True, blank=True)#correo electronico
-    celSoc = models.CharField(max_length= 12)#telefono del socio
+    celSoc = models.CharField(max_length= 12, null=True, blank=True)#telefono del socio
     telSoc = models.CharField(max_length=12, null=True, blank=True)#telefono de la oficina
     profecSoc = models.CharField(max_length=30, null=True, blank=True)#profecion socio
     trabSoc = models.CharField(max_length=30, null=True, blank=True)#trabajo socio
-    edadSoc = models.IntegerField()#edad del socio
+    edadSoc = models.IntegerField(null=True, blank=True)#edad del socio
     nacionalidadSoc = models.CharField(max_length=30)#nacionalidad del socio
     estCivSoc = models.CharField(max_length=10)#estado civil
     conySoc = models.CharField(max_length=70, null=True, blank=True)#conyuge si es que tiene
@@ -32,11 +32,11 @@ class Socio(models.Model):
     primSocFe = models.ForeignKey('self', on_delete=models.CASCADE, null=True, related_name='+', blank=True)#socio que conoce al postulante
     secSocFe = models.ForeignKey('self', on_delete=models.CASCADE, null=True, related_name='+', blank=True)#segundo socio que conoce al postulante
     fecSolic =  models.DateField(null=True, blank=True)#fecha de solicitud
-    estSolic = models.CharField(max_length=40, null=True, blank=True)#estado de la solicitud
+    estSolic = models.CharField(max_length=1, null=True, blank=True)#estado de la solicitud valores posibles p=pendiente r=rechazada a=aceptada
     fecAcept = models.DateField(null=True, blank=True)#fecha de aceptacion del 
     acta = models.ForeignKey(Acta, on_delete=models.CASCADE, null=True, blank=True)#referencia al acta de resolucion
-    infSolic = models.TextField()#informe final
-    fotoSoc = models.ImageField()#foto del socio
+    infSolic = models.TextField(null=True, blank=True)#informe final
+    fotoSoc = models.ImageField(null=True, blank=True)#foto del socio
 
 
 
