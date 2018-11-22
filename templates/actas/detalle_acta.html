@@ -31,6 +31,36 @@
         </div>
     </div>
     
+    <br>
+
+    <div class="row">
+        <div class="col-12">
+            <p>acta: {{ acta.copActa }}</p>
+            <iframe src="/meda/documents/2018-11-21_194020.203521.pdf" frameborder="0"></iframe>
+            <embed src="media/{{ acta.copActa }}" style="width:900px; height:700px;" frameborder="0" type="application/pdf"></embed>
+            <iframe src="https://docs.google.com/viewer?url=/media/{{ acta.copActa }}&embedded=true" width="600" height="780" style="border: none;"></iframe>
+            <iframe src="/media/{{ acta.copActa }}" frameborder="0"> {{ acta.copActa }}</iframe>
+        </div>
+    </div>
+
+<!--
+    <h1>Object:</h1>
+<object data='http://www.adventistchurchconnect.com/site/1/docs/test.pdf' 
+        type='application/pdf' 
+        width='100%' 
+        height='300'>
+
+<p>It appears your Web browser is not configured to display PDF files. 
+No worries, just <a href='http://www.adventistchurchconnect.com/site/1/docs/test.pdf'>click here to download the PDF file.</a>
+</object>
+<br />
+<h1>Iframe:</h1>
+<iframe src="/media/{{ acta.copActa }}" width="100%" height="300">
+</iframe>
+<br />
+<h1>Iframe (responsive - See CSS):</h1>
+<div class='embed-container'><iframe src='http://www.adventistchurchconnect.com/site/1/docs/test.pdf' style='border:0'></iframe></div>
+-->
 
 </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.urls import path, URLPattern
-from apps.socios.views import agregarsocio
+from .views import agregarsocio, socio_list
 
 urlpatterns = [
-    path('', agregarsocio, name='agregarsocio'),
+    path('', socio_list, name='listar_socios'),
+    path('nueva_solicitud/', agregarsocio, name='agregarsocio'),
 ]

@@ -31,8 +31,9 @@
             {% for acta in actas %}
             <tr>
                
-                    <td> <a href="{% url 'detalle_acta' pk=acta.pk %}">{{ acta.numActa }}</a></td>
+                    <td> <a href="{% url 'detalle_acta' pk=acta.id %}">{{ acta.numActa }}</a></td>
                     <td>{{ acta.fechaActa }}</td>
+                    <td>{{ acta.id }}</td>
                 
             </tr>
 
