@@ -10,14 +10,10 @@ document.getElementById("id_fotoSoc").onchange = function (e) {
     }
 }*/
 
+//funcion para previsualizar imagenes
 document.getElementById("id_fotoSoc").onchange = function (e) {
-    // Creamos el objeto de la clase FileReader
     let reader = new FileReader();
-
-    // Leemos el archivo subido y se lo pasamos a nuestro fileReader
     reader.readAsDataURL(e.target.files[0]);
-
-    // Le decimos que cuando este listo ejecute el código interno
     reader.onload = function () {
         let preview = document.getElementById('preview'),
             image = document.createElement('img');
@@ -28,3 +24,22 @@ document.getElementById("id_fotoSoc").onchange = function (e) {
         preview.append(image);
     };
 }
+
+//llamado al datepicker
+$('.datepicker').datepicker();
+$('#id_fechaActa').datepicker();
+
+//suma automatica
+function sumar() {
+    var total = 0;
+    $(".monto").each(function () {
+      if (isNaN(parseFloat($(this).val()))) {
+        total += 0;
+      } else {
+        total += parseFloat($(this).val());
+      }
+    });
+    //alert(total);
+    document.getElementById('spTotal').innerHTML = total;
+  }
+  

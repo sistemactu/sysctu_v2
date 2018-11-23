@@ -31,7 +31,7 @@
                 <label for="">Nombre completo postulante:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="nombCompSoc" class="form-control">
+                {{ form.nombCompSoc }}
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                 <label for="">Rut:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="rutSoc" class="form-control">
+                {{ form.rutSoc }}
             </div>
         </div>
 
@@ -53,7 +53,7 @@
                 <label for="">Domicilio:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="domicSoc" class="form-control">
+                {{ form.domicSoc }}
             </div>
         </div>
 
@@ -64,7 +64,7 @@
                 <label for="">Fecha de nacimiento:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input name="fecNacSoc" id="datepicker" width="276" placeholder="dd/mm/aaaa">
+                {{form.fecNacSoc }}
             </div>
         </div>
 
@@ -75,7 +75,7 @@
                 <label for="">Correo electronico:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="email" name="mailSoc" id="" class="form-control">
+                {{ form.email }}
             </div>
         </div>
 
@@ -86,7 +86,7 @@
                 <label for="">Celular:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="celSoc" placeholder="+5691111111" class="form-control">
+                {{ form.celSoc }}
             </div>
         </div>
 
@@ -97,7 +97,7 @@
                 <label for="">Telefono:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="telSoc" placeholder="322111111" class="form-control">
+                {{ form.telSoc }}
             </div>
         </div>
 
@@ -108,7 +108,7 @@
                 <label for="">Profeción:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="profecSoc" placeholder="Vendedor" class="form-control">
+                {{ form.profecSoc }}
             </div>
         </div>
 
@@ -119,7 +119,7 @@
                 <label for="">Lugar de trabajo:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="trabSoc" class="form-control">
+                {{ form.trabSoc }}
             </div>
         </div>
 
@@ -130,7 +130,7 @@
                 <label for="">Edad:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="number" name="edadSoc" min="1" class="form-control">
+                {{ form.edadSoc }}
             </div>
         </div>
 
@@ -141,7 +141,7 @@
                 <label for="">Nacionalida:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="nacionalidadSoc" class="form-control">
+                {{ form.nacionalidadSoc }}
             </div>
         </div>
 
@@ -152,12 +152,7 @@
                 <label for="">Estado civil:</label>
             </div>
             <div class="col-12 col-md-5">
-                <select name="estCivSoc" id="" class="form-control">
-                    <option value="slt">Soltero</option>
-                    <option value="csd">Casado</option>
-                    <option value="dvr">Divorciado</option>
-                    <option value="vdo">Viudo</option>
-                </select>
+                {{ form.estCivSoc }}
             </div>
         </div>
 
@@ -168,7 +163,7 @@
                 <label for="">Conyuge:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="conySoc" class="form-control">
+                {{ form.conySoc }}
             </div>
         </div>
 
@@ -179,18 +174,7 @@
                 <label for="">Cantidad de hijos menores:</label>
             </div>
             <div class="col-12 col-md-5">
-                <select name="numHijMenSoc" class="form-control">
-                    <option value="0" selected="selected">Ninguno</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                </select>
+                {{ form.numHijMenSoc }}
             </div>
         </div>
 
@@ -201,7 +185,7 @@
                 <label for="">Otros clubs de tenis a los que pertenece o pertenecio:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="poctSoc" class="form-control">
+                {{form.poctSoc }}
             </div>
         </div>
 
@@ -212,7 +196,7 @@
                 <label for="">Otros clubs sociales a los que pertenece o pertenecio:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="ocsSoc" class="form-control">
+                {{ form.ocsSoc }}
             </div>
         </div>
 
@@ -223,7 +207,32 @@
                 <label for="">Catgoría tenistica:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="text" name="catTenSoc" class="form-control">
+                {{ form.catTenSoc }}
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Socio patrocinador:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                {{ form.socPatr }}
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-4">
+                <label for="">Otros socios que conocen al postulante:</label>
+            </div>
+            <div class="col-12 col-md-3">
+                {{ form.primSocFe }}
+            </div>
+            <div class="col-12 col-md-3">
+                {{ form.secSocFe }}
             </div>
         </div>
 
@@ -234,7 +243,7 @@
                 <label for="">Cuota de incorporación:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="number" id="cuotInc" name="cuotInc" min="0" class="monto form-control" onchange="sumar();">
+                {{ form.cuotInc }}
             </div>
         </div>
 
@@ -245,7 +254,7 @@
                 <label for="">Cuota social:</label>
             </div>
             <div class="col-12 col-md-5">
-                <input type="number" id="cuotSoc" name="cuotSoc" min="0" class="monto form-control" onchange="sumar();">
+                {{ form.cuotSoc }}
             </div>
         </div>
 
@@ -256,7 +265,7 @@
                 <label for="">Total cancelado:</label>
             </div>
             <div class="col-12 col-md-5">
-                <span name="totPag" id="spTotal" class="form-control"></span>
+                {{ form.totPag }}
             </div>
         </div>
 
@@ -270,14 +279,60 @@
                 {{ form.formPaInsc }}
 
             </div>
-
-            <div class="col-12 col-md-3">
-                <button type="submit" id="btnCheque" disabled="disabled"></button>
-            </div>
-
         </div>
 
         <br>
+
+        {% if form.estSolic %}
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Numero de casillero:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                {{ form.numCas }}
+            </div>
+        </div>
+
+        <br>
+
+        {% if form.estSolic != 'a' %}
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Estado de solicitud:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                {{ form.estSolic }}
+            </div>
+        </div>
+
+        <br>
+
+        {% else %}
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">tipo de socio:</label>
+            </div>
+            <div class="col-12 col-md-5">
+                {{ form.tipoSoc }}
+            </div>
+        </div>
+
+        <br>
+        
+        {% endif %}
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-5">
+                <label for="">Informe final resultado de solicitud:</label>
+            </div>
+            <div class="col-12 col-md-5" style="height:300px">
+                {{ form.infSolic }}
+            </div>
+        </div>
+
+        {% endif %}
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
@@ -285,8 +340,6 @@
             </div>
         </div>
     </form>
-
-
 </div>
 
 
@@ -294,14 +347,27 @@
 
 {% else %}
 <div class="row">
-    <div class="col">
+    <div class="col" style="height:600px">
         <h2>Lo sentimos, no tienes autorización para esta seccion.</h2>
     </div>
 </div>
 
 {% endif %}
 
+<br>
 
-
+{% if form.estSolic == 'a' %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-12">
+        <a href="{% url 'listar_socios' %}" class="btn btn-outline-dark form-control">Volver</a>
+    </div>
+</div>
+{% else %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-12">
+        <a href="{% url 'listar_solicitudes' %}" class="btn btn-outline-dark form-control">Volver</a>
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}

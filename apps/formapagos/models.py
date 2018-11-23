@@ -23,11 +23,12 @@ def path_and_rename(path):
     
 
 class Cheques(models.Model):
-    titChq = models.CharField(max_length = 60)
-    montoChq = models.IntegerField()
-    bcoChq = models.CharField(max_length = 60)
-    fchEmChq = models.DateField()
-    fchInVigChq = models.DateField()
+    serieChq = models.CharField(max_length = 60, null=True, blank=True)
+    titChq = models.CharField(max_length = 60, null=True, blank=True)
+    montoChq = models.IntegerField( null=True, blank=True)
+    bcoChq = models.CharField(max_length = 60, null=True, blank=True)
+    fchEmChq = models.DateField( null=True, blank=True)
+    fchInVigChq = models.DateField( null=True, blank=True)
     fchCobChq = models.DateField(null=True, blank=True)
     copChq = models.ImageField(null=True, blank=True, upload_to="""path_and_rename("""'cehques/'""")""")
     cambioChq = models.OneToOneField('self', on_delete=models.CASCADE, null=True, blank=True)

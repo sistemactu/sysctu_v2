@@ -37,7 +37,7 @@
                 <tr>
 
                     <td> <img src="/static/{{ socio.fotoSoc }}" height="200px" alt=""> </td>
-                    <td> <a href="#">{{ socio.rutSoc }}</a></td>
+                    <td> <a href="{% url 'editar_socio' pk=socio.id %}">{{ socio.rutSoc }}</a></td>
                     <td>{{ socio.nombCompSoc }}</td>
                     <td>{{ socio.fecSolic }}</td>
                     {% if socio.estSolic == 'p' %}

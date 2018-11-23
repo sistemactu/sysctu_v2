@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Bootstrap CSS y otros -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link href="{% static 'css/gijgo.min.css' %}" rel="stylesheet" type="text/css" />
-    <script src="{% static 'js/gijgo.min.js' %}" type="text/javascript"></script>
+    <link href="{% static 'css/bootstrap-datepicker.standalone.min.css' %}" rel="stylesheet" type="text/css" />
+
 
     <title>{% block title %}Base{% endblock %}</title>
 </head>
@@ -143,35 +143,16 @@
     </div>
     <!--Fin del container-->
 
-    <script>
-        $(".datepicker").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            yearRange: '-100:+0',
-            maxDate: 0,
-            dateFormat: 'dd/mm/yy',
-            firstDay: 1,
-            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
-            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-        });
-    </script>
-
-    <script>
-        $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
-    </script>
-
+   
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
     <script src="{% static 'js/jsbase.js' %}"></script>
+
 </body>
 
 </html>

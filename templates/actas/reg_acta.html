@@ -22,7 +22,7 @@
             <label for="id_fechaActa">Fecha de reunión:</label>
         </div>
         <div class="col-12 col-md-4">
-            <input type="text" name="fechaActa" required id="id_fechaActa" class="form-control">
+            {{ form.fechaActa }}
         </div>
     </div>
 
@@ -33,7 +33,7 @@
             <label for="id_numActa">Número de acta:</label>
         </div>
         <div class="col-12 col-md-4">
-            <input type="number" name="numActa" required id="id_numActa" class="form-control">
+            {{ form.numActa }}
         </div>
     </div>
 
@@ -44,7 +44,7 @@
             <label for="id_copActa">Copia del acta:</label>
         </div>
         <div class="col-12 col-md-4">
-            <input type="file" name="copActa" id="id_copActa">
+            {{ form.copActa }}
         </div>
     </div>
 

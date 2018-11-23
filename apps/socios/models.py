@@ -38,5 +38,7 @@ class Socio(models.Model):
     infSolic = models.TextField(null=True, blank=True)#informe final
     fotoSoc = models.ImageField(null=True, blank=True)#foto del socio
 
+    def __str__(self):
+        return self.nombCompSoc
 
 
